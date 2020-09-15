@@ -50,7 +50,8 @@ class ListaScreenState extends State<ListaScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(tarefa.nome, style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
-                    Text(tarefa.data.toIso8601String(),
+                    Text("Adicionado em " + tarefa.data.day.toString() + "/" + tarefa.data.month.toString(),
+                    style: TextStyle(fontSize: 14.0)
                     )],
                 )
               ],
@@ -71,7 +72,10 @@ class ListaScreenState extends State<ListaScreen> {
               padding: EdgeInsets.all(8.0),
               child: TextField(
                 controller: controller,
-                onSubmitted: adicionaTarefa
+                onSubmitted: adicionaTarefa,
+                decoration: InputDecoration(
+                  hintText: 'Escreva o nome da tarefa'
+                ),
               ), 
             ),
             Expanded(
